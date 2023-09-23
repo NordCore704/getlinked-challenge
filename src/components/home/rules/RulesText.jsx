@@ -16,12 +16,12 @@ const RulesText = () => {
         className="absolute md:hidden -bottom-5 left-1/4 w-4"
       />
       <div className="text-center md:text-left md:self-start">
-        <p className="text-2xl sm:text-3xl font-bold text-center md:text-left md:self-start">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center md:text-left md:self-start">
           Rules and
-        </p>
-        <p className="sm:text-3xl font-bold text-center text-2xl md:text-left text-scheme-violet">
+        </h2>
+        <h2 className="sm:text-3xl font-bold text-center text-2xl md:text-left text-scheme-violet">
           Guidelines
-        </p>
+        </h2>
       </div>
       <div className="self-center md:self-start text-center md:text-left">
         <p>

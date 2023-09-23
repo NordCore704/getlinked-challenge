@@ -7,12 +7,12 @@ const IdeasText = () => {
   return (
     <div className="flex flex-col gap-5 items-center justify-center w-full h-1/2 md:w-1/2 md:h-full p-5">
       <div className="self-center md:self-start relative">
-        <p className="text-center md:text-left font-bold text-2xl sm:text-3xl">
+        <h2 className="text-center md:text-left font-bold text-2xl sm:text-3xl">
           Introduction to getlinked
-        </p>
-        <p className="text-center md:text-left font-bold text-2xl sm:text-3xl text-scheme-violet">
+        </h2>
+        <h2 className="text-center md:text-left font-bold text-2xl sm:text-3xl text-scheme-violet">
           tech Hackathon 1.0
-        </p>
+        </h2>
         <Image
           src={starPurple}
           alt="star"

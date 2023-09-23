@@ -17,8 +17,6 @@ export function validateForm(formData) {
 
   if (!formData.phone_number) {
     errors.phone_number = "Phone number is required";
-  } else if (!/^\d{10}$/.test(formData.phone_number)) {
-    errors.phone = "Invalid phone number format";
   }
 
   if (!formData.group_size) {
@@ -28,7 +26,7 @@ export function validateForm(formData) {
   }
 
   if (!formData.privacy_poclicy_accepted) {
-    errors.privacy_policy_accepted = "You must agree to the terms";
+    errors.privacy_poclicy_accepted = "You must agree to the terms";
   }
 
   return errors;
@@ -50,8 +48,6 @@ export const validateContactForm = (formData) => {
   // }
   if (!formData.phone_number) {
     errors.phone_number = "Phone number is required";
-  } else if (!/^\d{10}$/.test(formData.phone_number)) {
-    errors.phone = "Invalid phone number format";
   }
 
   return errors;

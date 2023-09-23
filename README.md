@@ -1,38 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GetLinked Hackathon UI Challenge
 
-## Getting Started
+This project is a UI challenge for the GetLinked Hackathon landing page. The landing page allows users to register via a form, with data sent to a backend API built using Next.js, Framer Motion, and Tailwind CSS.
 
-First, run the development server:
+## Project Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+### Features
+
+- User-friendly landing page design.
+- Registration form with input validation.
+- Smooth animations using Framer Motion.
+- Integration with a backend API for user registration.
+
+### Technologies Used
+
+- Next.js: A React framework that enables server-rendered and statically generated applications.
+- Framer Motion: A motion library for React that allows for easy animations.
+- Tailwind CSS: A utility-first CSS framework for building responsive and design-driven web applications.
+
+## How I Built It
+
+### Frontend
+
+The frontend of the GetLinked Hackathon landing page was built using Next.js, providing a solid foundation for server-side rendering and routing. Tailwind CSS was used for styling, allowing for rapid development with utility classes.
+
+Framer Motion was integrated to create smooth animations for a more engaging user experience. Animations were carefully implemented to enhance the visual appeal of the landing page without compromising on performance.
+
+### Backend API
+
+The backend API was also built using Next.js, allowing for server-side processing of form submissions. The API handles the registration process, validating the form data before persisting it to a database or external service.
+
+### Form Validation
+
+Input validation was implemented on the client side to ensure that users provide valid information. The validation logic was organized into a separate utility function for maintainability and reusability.
+
+### Project Structure
+
+```
+|-- components
+|   |-- ...
+|-- pages
+|   |-- index.js
+|-- styles
+|   |-- ...
+|-- utils
+|   |-- postForm.js
+|   |-- validateForm.js
+|-- ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- `components`: Contains reusable UI components used in the landing page.
+- `pages`: Contains the main page components, with `index.js` serving as the entry point.
+- `styles`: Houses any additional styles or overrides specific to the project.
+- `utils`: Contains utility functions for sending form data (`postForm.js`) and validating form inputs (`validateForm.js`).
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## How to Run the Project
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+1. Clone the repository to your local machine.
+2. Install the required dependencies using `npm install`.
+3. Run the project locally with `npm run dev`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Acknowledgements
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Special thanks to the GetLinked team for organizing this hackathon and providing the opportunity to work on this UI challenge project.
 
-## Learn More
+## Future Improvements
 
-To learn more about Next.js, take a look at the following resources:
+- Implement authentication and user management features.
+- Enhance accessibility for a wider audience.
+- Optimize performance for faster page loading.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Feel free to reach out if you have any questions or feedback!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+*Note: This README provides an overview of the project, but actual URLs, code snippets, and specific details may vary based on your project's structure and implementation.*

@@ -9,6 +9,9 @@ export const postForm = async (postData) => {
       },
       body: JSON.stringify(postData),
     });
+    if (!response.ok) {
+      throw new Error('Network response failed')
+    }
     const data = await response.json();
     console.log(data);
     return data;

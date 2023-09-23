@@ -1,3 +1,7 @@
+@import url("/src/styles/clash-display.css");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -28,5 +32,19 @@ body {
   background-image: linear-gradient(to right, #d434fe, #150e28);
   border-image: linear-gradient(to right, #d434fe, #150e28);
   border-image-slice: 1;
+}
+h2, h3{
+  font-family: 'ClashDisplay-Bold';
+}
+
+.clash{
+  font-family: 'ClashDisplay-Bold';
+}
+
+p, button, a, ul, li, article, summary, input{
+  font-family: 'Montserrat', sans-serif;
+}
+.inter{
+  font-family: 'Inter', sans-serif;
 }
 

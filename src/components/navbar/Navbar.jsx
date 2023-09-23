@@ -99,9 +99,9 @@ const Navbar = () => {
           className="logo--div py-3 md:py-2 flex justify-center items-center h-[64px] opacity-0 sm:ml- lg:ml-10 translate-y-4"
           ref={logoRef}
         >
-          <p className={`font-extrabold self-end text-3xl`}>
+          <h2 className={`font-extrabold self-end text-3xl`}>
             get<span className="text-scheme-violet">linked</span>
-          </p>
+          </h2>
         </div>
         <div className="details--div sm:mr-4 lg:mr-10 flex items-center justify-between gap-10 lg:gap-20">
           {toggle ? (
