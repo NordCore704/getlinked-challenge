@@ -40,6 +40,7 @@ const ContactForm = () => {
         const data = await postForm(postData);
         console.log("Post successful", data);
         setShowPopUp(true)
+        return data
       } catch (error) {}
     }
     setErrors(newErrors)

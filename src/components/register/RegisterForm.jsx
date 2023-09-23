@@ -13,7 +13,7 @@ const RegisterForm = () => {
     project_topic: "",
     group_size: 10,
     category: 1,
-    privacy_policy_accepted: true,
+    privacy_poclicy_accepted: true,
   });
   const [errors, setErrors] = useState({});
   const [showPopUp, setShowPopUp] = useState(false)
@@ -28,15 +28,16 @@ const RegisterForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const finalPostData = {
-      ...postData,
-      group_size: Number(postData.group_size),
-      category: Number(postData.group_size)
-    }
-
-    const newErrors = validateForm(finalPostData);
+ 
+    const newErrors = validateForm(postData);
+ 
 
     if (Object.keys(newErrors).length === 0) {
+      const finalPostData = {
+        ...postData,
+        group_size: Number(postData.group_size),
+        category: Number(postData.group_size)
+      }
       try {
         const data = await postRegistration(finalPostData);
         console.log("Post successful", data);
@@ -71,7 +72,7 @@ const RegisterForm = () => {
           </div>
         </div>
         <form
-          action=""
+          action="POST"
           onSubmit={handleSubmit}
           className="flex flex-col gap-5 w-full"
         >
@@ -200,19 +201,19 @@ const RegisterForm = () => {
             <div className=" custom-checkbox">
               <input
                 onChange={handleInputChange}
-                checked={postData.privacy_policy_accepted}
+                checked={postData.privacy_poclicy_accepted}
                 type="checkbox"
-                name="privacy_policy_accepted"
+                name="privacy_poclicy_accepted"
                 id=""
                 className="cursor-pointer"
               />
-              <label htmlFor="privacy_policy_accepted" className="pl-3">
+              <label htmlFor="privacy_poclicy_accepted" className="pl-3">
                 I agreed with the event's terms and conditions and privacy
                 policy
               </label>
               
             </div>
-            {errors.privacy_policy_accepted && <p className="text-sm text-red-500">{errors.privacy_policy_accepted}</p>}
+            {errors.privacy_policy_accepted && <p className="text-sm text-red-500">{errors.privacy_poclicy_accepted}</p>}
           </div>
           <button
             type="submit"

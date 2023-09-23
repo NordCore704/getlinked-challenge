@@ -27,7 +27,7 @@ export function validateForm(formData) {
     errors.group_size = "Please enter a valid number";
   }
 
-  if (!formData.privacy_policy_accepted) {
+  if (!formData.privacy_poclicy_accepted) {
     errors.privacy_policy_accepted = "You must agree to the terms";
   }
 
