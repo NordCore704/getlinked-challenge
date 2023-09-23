@@ -36,7 +36,7 @@ const IntroText = () => {
         className="w-3 absolute top-20 right-10 sm:right-20 md:hidden lg:hidden"
       />
       <Link
-        href={"/regiter"}
+        href={"/register"}
         className="bg-gradient-to-r from-scheme-pink to-scheme-purple w-36 p-2 rounded-sm self-center md:self-start flex justify-center items-center font-semibold"
       >
         Register
