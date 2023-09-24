@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { CountdownTimer } from '@/exports'
 import Image from "next/image";
 import { bulb, spark, chain, star } from "@/exports/image";
 
@@ -42,15 +43,7 @@ const IntroText = () => {
         Register
       </Link>
       <div className="flex gap-4 self-center md:self-start inter">
-        <p className="text-4xl">
-          00<span className="text-base">H</span>
-        </p>
-        <p className="text-4xl">
-          00<span className="text-base">M</span>
-        </p>
-        <p className="text-4xl">
-          00<span className="text-base">s</span>
-        </p>
+      <CountdownTimer />
       </div>
     </div>
   );
