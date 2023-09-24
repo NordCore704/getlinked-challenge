@@ -36,6 +36,7 @@ import FooterRights from "@/components/footer/components/FooterRights";
 import ContactMain from "@/components/contact/ContactMain";
 import ContactForm from "@/components/contact/ContactForm";
 import ContactText from "@/components/contact/ContactText";
+import ContactSuccess from "@/components/contact/ContactSuccess";
 import RegisterMain from "@/components/register/RegisterMain";
 import RegisterImage from "@/components/register/RegisterImage";
 import RegisterForm from "@/components/register/RegisterForm";
@@ -81,6 +82,7 @@ export {
   ContactMain,
   ContactText,
   ContactForm,
+  ContactSuccess,
   RegisterMain,
   RegisterImage,
   RegisterForm,

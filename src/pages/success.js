@@ -1,10 +1,10 @@
 import React from 'react'
-import { RegisterSuccess } from '@/exports'
+import { ContactSuccess, RegisterSuccess } from '@/exports'
 
 const success = () => {
   return (
     <div>
-        <RegisterSuccess />
+        <ContactSuccess />
     </div>
   )
 }
