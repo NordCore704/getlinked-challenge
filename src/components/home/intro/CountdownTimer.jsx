@@ -19,14 +19,17 @@ const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      const timeLeft = calculateTimeLeft();
-      if (timeLeft !== null) {
-        setTimeLeft(timeLeft);
-      }
-    }, 1000);
+    if (typeof window !== 'undefined') {
+      const timer = setInterval(() => {
+        const timeLeft = calculateTimeLeft();
+        if (timeLeft !== null) {
+          setTimeLeft(timeLeft);
+        }
+      }, 1000);
+      return () => clearInterval(timer);
+    }
+   
 
-    return () => clearInterval(timer);
   }, []);
 
   const { hours, minutes, seconds } = timeLeft;

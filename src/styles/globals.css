@@ -1,4 +1,4 @@
-@import url("/src/styles/clash-display.css");
+@import url("../../src/styles/clash-display.css");
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
 
@@ -33,16 +33,28 @@ body {
   border-image: linear-gradient(to right, #d434fe, #150e28);
   border-image-slice: 1;
 }
-/* h2, h3, h2 span{
-  font-family: 'ClashDisplay-Bold', sans-serif;
+
+/* 
+@font-face {
+  font-family: 'ClashDisplay-Bold';
+  src: url('../../public/fonts/clash-display/ClashDisplay-Bold.woff2') format('woff2'),
+       url('../../public/fonts/clash-display/ClashDisplay-Bold.woff') format('woff'),
+       url('../../public/fonts/clash-display/ClashDisplay-Bold.ttf') format('truetype');
+       font-weight: 700;
+       font-display: swap;
+       font-style: normal;
 } */
 
-/* h2 .clash {
+h2, h3, h2 span{
+  font-family: 'ClashDisplay-Bold', sans-serif;
+} 
+
+ h2 .clash {
   font-family: 'ClashDisplay-Semibold', sans-serif;
 }
 .clash{
   font-family: 'ClashDisplay-Bold', sans-serif;
-} */
+}
 
 p, button, a, ul, li, article, summary, input, textarea, label{
   font-family: 'Montserrat', sans-serif;

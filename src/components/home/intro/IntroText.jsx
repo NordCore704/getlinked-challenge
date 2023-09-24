@@ -43,7 +43,7 @@ const IntroText = () => {
         Register
       </Link>
       <div className="flex gap-4 self-center md:self-start inter">
-      <CountdownTimer />
+      {/* <CountdownTimer /> */}
       </div>
     </div>
   );

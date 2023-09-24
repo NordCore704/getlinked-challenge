@@ -126,7 +126,7 @@ const Navbar = () => {
             className={`gap-3 lg:gap-5 hidden list-none lg:flex md:flex font-semibold translate-y-4 opacity-0`}
             ref={listRefOne}
           >
-            <li className="">
+            <li className="hover:text-scheme-violet">
               <Link href={"#timeline"} className=''>
                 Timeline
               </Link>
@@ -139,14 +139,14 @@ const Navbar = () => {
                 Overview
               </Link>
             </li>
-            <li className="">
+            <li className="hover:text-scheme-violet">
               <Link
                 href={"#faqs"}
               >
                 FAQs
               </Link>
             </li>
-            <li className="">
+            <li className="hover:text-scheme-violet">
               <Link
                 href={"/contact"}
                 className={currentRoute === "/contact" ? "active" : ""}
