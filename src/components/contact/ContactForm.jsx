@@ -55,7 +55,7 @@ const ContactForm = () => {
   
 
   return (
-    <div className="flex items-center justify-center flex-col gap-6 relative z-50">
+    <div className="flex items-center justify-center flex-col gap-6 relative z-10">
       <div className="md:w-[90%] md:rounded-md md:bg-opacity-50 md:bg-gray-800 md:shadow-sm md:backdrop-blur-lg md:backdrop-filter p-3 sm:p-10 flex flex-col gap-4">
         <div className="">
           <h2 className="text-scheme-violet text-2xl sm:text-3xl font-bold clash">

@@ -44,7 +44,7 @@ body {
   font-family: 'ClashDisplay-Bold', sans-serif;
 } */
 
-p, button, a, ul, li, article, summary, input, textarea{
+p, button, a, ul, li, article, summary, input, textarea, label{
   font-family: 'Montserrat', sans-serif;
 }
 .inter{
