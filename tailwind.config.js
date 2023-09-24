@@ -12,6 +12,10 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      fontFamily: {
+        custom: ['ClashDisplay-Bold', 'sans-serif'],
+        'custom-semibold': ['ClashDisplay-Semibold', 'sans-serif'],
+      },
       colors: {
         "scheme-bg-color": '#150E28',
         "scheme-purple": '#903AFF',

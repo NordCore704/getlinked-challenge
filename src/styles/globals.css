@@ -1,6 +1,6 @@
 @import url("/src/styles/clash-display.css");
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -33,16 +33,16 @@ body {
   border-image: linear-gradient(to right, #d434fe, #150e28);
   border-image-slice: 1;
 }
-h2, h3, h2 span{
+/* h2, h3, h2 span{
   font-family: 'ClashDisplay-Bold', sans-serif;
-}
+} */
 
-h2 .clash {
+/* h2 .clash {
   font-family: 'ClashDisplay-Semibold', sans-serif;
 }
 .clash{
   font-family: 'ClashDisplay-Bold', sans-serif;
-}
+} */
 
 p, button, a, ul, li, article, summary, input{
   font-family: 'Montserrat', sans-serif;

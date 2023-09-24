@@ -13,9 +13,9 @@ const IntroText = () => {
             src={bulb}
             className="w-5 sm:w-8 self-end mr-4 absolute sm:-top-7 -top-3"
           />
-          <span className="gap-0 clash">getlinked Tech</span>
+          <span className="gap-0 font-custom">getlinked Tech</span>
         </p>
-        <p className="font-extrabold text-center md:text-left sm:text-4xl lg:text-5xl text-3xl flex gap-1 clash">
+        <p className="font-extrabold text-center md:text-left sm:text-4xl lg:text-5xl text-3xl flex gap-1 font-custom">
           Hackathon <span className="text-scheme-violet">1.0</span>
           <Image src={chain} alt="chain" className="w-10" />
           <Image src={spark} alt="chain" className="w-10" />
@@ -41,7 +41,7 @@ const IntroText = () => {
       >
         Register
       </Link>
-      <div className="flex gap-4 self-center md:self-start">
+      <div className="flex gap-4 self-center md:self-start inter">
         <p className="text-4xl">
           00<span className="text-base">H</span>
         </p>
