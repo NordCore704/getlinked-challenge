@@ -7,8 +7,8 @@ const AttributeText = () => {
   return (
     <div className="w-full md:w-1/2 h-1/2 md:h-full flex p-5 lg:p-10 items-center gap-4 flex-col justify-center relative">
       <div className="self-center md:self-start text-center md:text-left">
-        <p className="font-bold text-3xl">Judging Criteria</p>
-        <p className="font-bold text-3xl text-scheme-violet">Key Attributes</p>
+        <p className="font-bold text-3xl clash">Judging Criteria</p>
+        <p className="font-bold text-3xl text-scheme-violet clash">Key Attributes</p>
       </div>
       {attributesTextContent.map((item, index) => (
         <p
