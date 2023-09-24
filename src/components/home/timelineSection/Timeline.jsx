@@ -1,17 +1,63 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
-import { inView } from 'react-intersection-observer'
+import { useInView } from "react-intersection-observer";
+import { motion, useAnimation } from "framer-motion";
 import { starGrey, starPurple, star } from "@/exports/image";
 
 const Timeline = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.4,
+    triggerOnce: true,
+  });
+  const animation = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      animation.start("animate");
+    } else {
+      animation.start("init");
+    }
+  });
+  const textVariant = {
+    init: {
+      y: 100,
+      opacity: 0,
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+    },
+  };
   return (
-    <div className="w-full px-2 mx-auto grid gap-2 md:grid-cols-9 place-items-center relative">
-      <Image src={starPurple} alt="star" className="absolute -top-10 left-20 lg:left-36 w-5" />
-      <Image src={starGrey} alt="star" className="absolute top-[40%] right-20 lg:right-36 lg:w-4 w-3" />
-      <Image src={star} alt="star" className="absolute -bottom-3 md:bottom-20 left-20 lg:left-36 w-3" />
+    <div
+      className="w-full px-2 mx-auto grid gap-2 md:grid-cols-9 place-items-center relative"
+      ref={ref}
+    >
+      <Image
+        src={starPurple}
+        alt="star"
+        className="absolute -top-10 left-20 lg:left-36 w-5"
+      />
+      <Image
+        src={starGrey}
+        alt="star"
+        className="absolute top-[40%] right-20 lg:right-36 lg:w-4 w-3"
+      />
+      <Image
+        src={star}
+        alt="star"
+        className="absolute -bottom-3 md:bottom-20 left-20 lg:left-36 w-3"
+      />
 
       {/* Stack 1 */}
-      <div className="col-span-4 w-full h-full">
+
+      <motion.div
+        className="col-span-4 w-full h-full"
+        variants={textVariant}
+        animate={animation}
+        initial={"init"}
+        transition={{ ease: "easeInOut", type: "spring", duration: 2 }}
+      >
         <div className="w-full h-full bg-transparent md:pl-4 border-l-2 border-scheme-violet md:border-none ml-2 px-5">
           <h2 className="text-scheme-violet font-semibold text-lg sm:text-xl text-left md:text-right">
             Hackathon Announcement
@@ -21,8 +67,15 @@ const Timeline = () => {
             general public and teams begin to get ready to register
           </p>
         </div>
-      </div>
-      <div className="relative md:col-span-4 w-full h-full flex justify-center items-center flex-col gap-1">
+      </motion.div>
+      <motion.div
+        className="relative md:col-span-4 w-full h-full flex justify-center items-center flex-col gap-1"
+        variants={textVariant}
+        animate={animation}
+        initial={"init"}
+        transition={{ ease: "easeInOut", type: "spring", duration: 2 }}
+        ref={ref}
+      >
         <div className="h-full w-0.5 ml-2.5 bg-scheme-violet md:self-start md:flex hidden"></div>
         <div className="flex gap-3 self-center md:self-start z-10">
           <div className="mb-1 text-white text-center w-6 h-6 rounded-full bg-gradient-to-r from-scheme-violet to-scheme-purple font-semibold">
@@ -32,11 +85,22 @@ const Timeline = () => {
             November 18, 2023
           </p>
         </div>
-      </div>
+      </motion.div>
       <div className="col-span-4 w-full h-full"></div>
 
       {/* Stack 2 */}
-      <div className="col-span-4 w-full h-full flex">
+      <motion.div
+        className="col-span-4 w-full h-full flex"
+        variants={textVariant}
+        animate={animation}
+        initial={"init"}
+        transition={{
+          delay: 1,
+          ease: "easeInOut",
+          type: "spring",
+          duration: 2,
+        }}
+      >
         <div className="w-full h-full bg-transparent md:pl-4 border-l-2 border-scheme-violet ml-2 px-5">
           <h2 className="text-scheme-violet font-semibold text-lg sm:text-xl text-left md:text-left">
             Teams Registration begins
@@ -46,8 +110,19 @@ const Timeline = () => {
             hackathon 1.0 by proceeding to register
           </p>
         </div>
-      </div>
-      <div className="relative md:col-span-4 w-full h-full flex justify-center items-center flex-col gap-1">
+      </motion.div>
+      <motion.div
+        className="relative md:col-span-4 w-full h-full flex justify-center items-center flex-col gap-1"
+        variants={textVariant}
+        animate={animation}
+        initial={"init"}
+        transition={{
+          delay: 1,
+          ease: "easeInOut",
+          type: "spring",
+          duration: 2,
+        }}
+      >
         <div className="h-10 w-0.5 ml-2.5 bg-scheme-violet md:self-end hidden"></div>
         <div className="flex md:flex-row-reverse gap-3 self-center md:self-end z-10 md:relative md:-right-7">
           <div className="mb-1 text-white text-center w-6 h-6 rounded-full bg-gradient-to-r from-scheme-violet to-scheme-purple font-semibold">
@@ -57,11 +132,22 @@ const Timeline = () => {
             November 18, 2023
           </p>
         </div>
-      </div>
+      </motion.div>
       <div className="col-span-4 w-full h-full"></div>
 
       {/* Stack 3 */}
-      <div className="col-span-4 w-full h-full">
+      <motion.div
+        className="col-span-4 w-full h-full"
+        variants={textVariant}
+        animate={animation}
+        initial={"init"}
+        transition={{
+          delay: 2,
+          ease: "easeInOut",
+          type: "spring",
+          duration: 2,
+        }}
+      >
         <div className="w-full h-full bg-transparent md:pl-4 border-l-2 border-scheme-violet md:border-none ml-2 px-5">
           <h2 className="text-scheme-violet font-semibold text-lg sm:text-xl text-left md:text-right">
             Team Registeration ends
@@ -71,8 +157,19 @@ const Timeline = () => {
             <br className="md:hidden lg:flex" /> to register
           </p>
         </div>
-      </div>
-      <div className="relative md:col-span-4 w-full h-full flex justify-center items-center flex-col gap-1">
+      </motion.div>
+      <motion.div
+        className="relative md:col-span-4 w-full h-full flex justify-center items-center flex-col gap-1"
+        variants={textVariant}
+        animate={animation}
+        initial={"init"}
+        transition={{
+          delay: 2,
+          ease: "easeInOut",
+          type: "spring",
+          duration: 2,
+        }}
+      >
         <div className="h-full w-0.5 ml-2.5 bg-scheme-violet md:self-start md:flex hidden"></div>
         <div className="flex w-full gap-3 self-center md:self-start z-10">
           <div className="mb-1 text-white text-center w-6 h-6 rounded-full bg-gradient-to-r from-scheme-violet to-scheme-purple font-semibold">
@@ -82,11 +179,22 @@ const Timeline = () => {
             November 18, 2023
           </p>
         </div>
-      </div>
+      </motion.div>
       <div className="col-span-4 w-full h-full"></div>
 
       {/* Stack 4 */}
-      <div className="col-span-4 w-full h-full flex">
+      <motion.div
+        className="col-span-4 w-full h-full flex"
+        variants={textVariant}
+        animate={animation}
+        initial={"init"}
+        transition={{
+          delay: 3,
+          ease: "easeInOut",
+          type: "spring",
+          duration: 2,
+        }}
+      >
         <div className="w-full h-full bg-transparent md:pl-4 border-l-2 border-scheme-violet ml-2 px-5">
           <h2 className="text-scheme-violet font-semibold text-lg sm:text-xl text-left md:text-left">
             Annoncement of the accepted teams and ideas
@@ -96,8 +204,19 @@ const Timeline = () => {
             hackathon 1.0 2023 are formally announced
           </p>
         </div>
-      </div>
-      <div className="relative md:col-span-4 w-full h-full flex justify-center items-center flex-col gap-1">
+      </motion.div>
+      <motion.div
+        className="relative md:col-span-4 w-full h-full flex justify-center items-center flex-col gap-1"
+        variants={textVariant}
+        animate={animation}
+        initial={"init"}
+        transition={{
+          delay: 3,
+          ease: "easeInOut",
+          type: "spring",
+          duration: 2,
+        }}
+      >
         <div className="h-10 w-0.5 ml-2.5 bg-scheme-violet md:self-end hidden"></div>
         <div className="flex md:flex-row-reverse gap-3 self-center md:self-end z-10 md:relative md:-right-7">
           <div className="mb-1 text-white text-center w-6 h-6 rounded-full bg-gradient-to-r from-scheme-violet to-scheme-purple font-semibold">
@@ -107,11 +226,22 @@ const Timeline = () => {
             November 18, 2023
           </p>
         </div>
-      </div>
+      </motion.div>
       <div className="col-span-4 w-full h-full"></div>
 
       {/* Stack 5 */}
-      <div className="col-span-4 w-full h-full">
+      <motion.div
+        className="col-span-4 w-full h-full"
+        variants={textVariant}
+        animate={animation}
+        initial={"init"}
+        transition={{
+          delay: 4,
+          ease: "easeInOut",
+          type: "spring",
+          duration: 2,
+        }}
+      >
         <div className="w-full h-full bg-transparent md:pl-4 border-l-2 border-scheme-violet md:border-none ml-2 px-5">
           <h2 className="text-scheme-violet font-semibold text-lg sm:text-xl text-left md:text-right">
             Getlinked Hackathon 1.0 Officially Begins
@@ -121,8 +251,19 @@ const Timeline = () => {
             driven solutions
           </p>
         </div>
-      </div>
-      <div className="relative md:col-span-4 w-full h-full flex justify-center items-center flex-col gap-1">
+      </motion.div>
+      <motion.div
+        className="relative md:col-span-4 w-full h-full flex justify-center items-center flex-col gap-1"
+        variants={textVariant}
+        animate={animation}
+        initial={"init"}
+        transition={{
+          delay: 4,
+          ease: "easeInOut",
+          type: "spring",
+          duration: 2,
+        }}
+      >
         <div className="h-full w-0.5 ml-2.5 bg-scheme-violet md:self-start md:flex hidden"></div>
         <div className="flex gap-3 self-center md:self-start z-10">
           <div className="mb-1 text-white text-center w-6 h-6 rounded-full bg-gradient-to-r from-scheme-violet to-scheme-purple font-semibold">
@@ -132,11 +273,22 @@ const Timeline = () => {
             November 18, 2023
           </p>
         </div>
-      </div>
+      </motion.div>
       <div className="col-span-4 w-full h-full"></div>
 
       {/* Stack 6 */}
-      <div className="col-span-4 w-full h-full flex">
+      <motion.div
+        className="col-span-4 w-full h-full flex"
+        variants={textVariant}
+        animate={animation}
+        initial={"init"}
+        transition={{
+          delay: 5,
+          ease: "easeInOut",
+          type: "spring",
+          duration: 2,
+        }}
+      >
         <div className="w-full h-full bg-transparent md:pl-4 border-l-2 border-scheme-violet ml-2 px-5">
           <h2 className="text-scheme-violet font-semibold text-lg sm:text-xl text-left md:text-left">
             Demo Day
@@ -146,8 +298,19 @@ const Timeline = () => {
             winner of the hackathon will be announced on this day
           </p>
         </div>
-      </div>
-      <div className="relative md:col-span-4 w-full h-full flex justify-center items-center flex-col gap-1">
+      </motion.div>
+      <motion.div
+        className="relative md:col-span-4 w-full h-full flex justify-center items-center flex-col gap-1"
+        variants={textVariant}
+        animate={animation}
+        initial={"init"}
+        transition={{
+          delay: 5,
+          ease: "easeInOut",
+          type: "spring",
+          duration: 2,
+        }}
+      >
         <div className="h-10 w-0.5 ml-2.5 bg-scheme-violet md:self-end hidden"></div>
         <div className="flex md:flex-row-reverse gap-3 self-center md:self-end z-10 md:relative md:-right-7">
           <div className="mb-1 text-white text-center w-6 h-6 rounded-full bg-gradient-to-r from-scheme-violet to-scheme-purple font-semibold">
@@ -157,7 +320,7 @@ const Timeline = () => {
             November 18, 2023
           </p>
         </div>
-      </div>
+      </motion.div>
       <div className="col-span-4 w-full h-full"></div>
     </div>
   );

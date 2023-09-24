@@ -1,10 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { lock, lockGuy, star, starGrey, starPurple } from "@/exports/image";
 import Image from "next/image";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const PoliciesImage = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.6,
+    triggerOnce: true,
+  });
+
+  const animation = useAnimation();
+  useEffect(() => {
+    if (inView) {
+      animation.start("animate");
+    } else {
+      animation.start("init");
+    }
+  });
+  const textVariant = {
+    init: {
+      y: -100,
+      opacity: 0,
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+    },
+  };
   return (
-    <div className="w-full h-1/2 md:w-1/2 md:h-full flex relative p-10 flex-col justify-end items-center">
+    <motion.div className="w-full h-1/2 md:w-1/2 md:h-full flex relative p-10 flex-col justify-end items-center"  variants={textVariant} animate={animation} initial={'init'} transition={{delay: .5, ease: 'easeInOut', type: 'spring', duration: 2 }} ref={ref}>
       <Image src={lock} alt="lock" className="absolute top-5 w-[70%]" />
       <Image
         src={lockGuy}
@@ -36,7 +61,7 @@ const PoliciesImage = () => {
         alt="star"
         className="absolute top-[20%] right-1/4 w-3 md:w-4"
       />
-    </div>
+    </motion.div>
   );
 };
 

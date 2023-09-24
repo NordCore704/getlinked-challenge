@@ -1,11 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { greenCheck, starPurple, star } from "@/exports/image";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 
 const PoliciesText = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.6,
+    triggerOnce: true,
+  });
+
+  const animation = useAnimation();
+  useEffect(() => {
+    if (inView) {
+      animation.start("animate");
+    } else {
+      animation.start("init");
+    }
+  });
+  const textVariant = {
+    init: {
+      y: -100,
+      opacity: 0,
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+    },
+  };
   return (
-    <div className="w-full h-1/2 md:w-1/2 md:h-full flex justify-center items-center p-5 lg:p-10 flex-col gap-10 relative">
+    <motion.div className="w-full h-1/2 md:w-1/2 md:h-full flex justify-center items-center p-5 lg:p-10 flex-col gap-10 relative"  variants={textVariant} animate={animation} initial={'init'} transition={{ ease: 'easeInOut', type: 'spring', duration: 2 }} ref={ref}>
       <div className="flex flex-col gap-5 self-center md:self-start">
         <h2 className="font-bold text-2xl sm:text-3xl text-center md:text-left">
           Privacy and Policy <br />{" "}
@@ -63,7 +88,7 @@ const PoliciesText = () => {
       </div>
       <Image src={star} alt="star" className="absolute top-20 sm:top-10 w-3 sm:w-5 left-[70%] lg:left-[60%]"/>
       <Image src={starPurple} alt="star" className="absolute bottom-10 left-5 z-10"/>
-    </div>
+    </motion.div>
   );
 };
 

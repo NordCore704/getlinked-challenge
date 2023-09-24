@@ -1,12 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { faqsContent } from "@/constants/faqsContent";
 import { starPurple } from "@/exports/image";
 import Image from "next/image";
+import { motion, useAnimation } from "framer-motion";
 import { FaPlus } from "react-icons/fa";
+import { useInView } from "react-intersection-observer";
 
 const FaqsText = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.6,
+    triggerOnce: true,
+  });
+
+  const animation = useAnimation();
+  useEffect(() => {
+    if (inView) {
+      animation.start("animate");
+    } else {
+      animation.start("init");
+    }
+  });
+  const textVariant = {
+    init: {
+      y: 100,
+      opacity: 0,
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+    },
+  };
   return (
-    <div className="flex flex-col items-center gap-10 w-full md:w-1/2 h-1/2 md:h-full p-5 lg:p-10 relative">
+    <motion.div className="flex flex-col items-center gap-10 w-full md:w-1/2 h-1/2 md:h-full p-5 lg:p-10 relative"  variants={textVariant} animate={animation} initial={'init'} transition={{ ease: 'easeInOut', type: 'spring', duration: 2 }} ref={ref}>
       <div className="flex-col self-center md:self-start items-center justify-center flex gap-5">
         <div className="self-center md:self-start">
           <h2 className="font-bold text-2xl text-center md:text-left sm:text-3xl">
@@ -44,7 +69,7 @@ const FaqsText = () => {
         alt="star"
         className="absolute sm:left-[25%] left-10 md:left-2 w-5 "
       />
-    </div>
+    </motion.div>
   );
 };
 

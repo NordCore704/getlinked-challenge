@@ -1,10 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { sittingWoman, starGrey, star, flare } from "@/exports/image";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
+import { useAnimation, motion } from "framer-motion";
 
 const RulesText = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.6,
+    triggerOnce: true,
+  });
+
+  const animation = useAnimation();
+  useEffect(() => {
+    if (inView) {
+      animation.start("animate");
+    } else {
+      animation.start("init");
+    }
+  });
+  const textVariant = {
+    init: {
+      y: 100,
+      opacity: 0,
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+    },
+  };
+
   return (
-    <div className="w-full h-1/2 md:h-full md:w-1/2 flex flex-col items-center justify-center gap-5 p-5 lg:p-10 relative mb-10">
+    <motion.div className="w-full h-1/2 md:h-full md:w-1/2 flex flex-col items-center justify-center gap-5 p-5 lg:p-10 relative mb-10"  variants={textVariant} animate={animation} initial={'init'} transition={{delay: .5, ease: 'easeInOut', type: 'spring', duration: 2 }} ref={ref}>
       <Image
         alt="star"
         src={star}
@@ -33,7 +59,7 @@ const RulesText = () => {
           change the world, that's what we're all about!
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,10 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { starPurple } from "@/exports/image";
 import Image from "next/image";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const PrizeText = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.6,
+    triggerOnce: true,
+  });
+
+  const animation = useAnimation();
+  useEffect(() => {
+    if (inView) {
+      animation.start("animate");
+    } else {
+      animation.start("init");
+    }
+  });
+  const textVariant = {
+    init: {
+      y: -100,
+      opacity: 0,
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+    },
+  };
   return (
-    <div className="w-full h-1/2 flex md:justify-end justify-center items-center md:px-36 p-5 relative">
+    <motion.div className="w-full h-1/2 flex md:justify-end justify-center items-center md:px-36 p-5 relative"  variants={textVariant} animate={animation} initial={'init'} transition={{ ease: 'easeInOut', type: 'spring', duration: 2 }} ref={ref}>
       <Image
         src={starPurple}
         alt="star"
@@ -27,7 +52,7 @@ const PrizeText = () => {
           participants
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -2,10 +2,21 @@ import React from "react";
 import { flare, pinkArc, starGrey } from "@/exports/image";
 import Image from "next/image";
 import { IntroHero, IntroText } from "@/exports";
+import { motion } from "framer-motion";
 
 const IntroMain = () => {
+  const animationVariant = {
+    init: {
+      opacity: 0,
+
+    },
+    animate: {
+      opacity: 1,
+
+    }
+  }
   return (
-    <section className="flex flex-col md:flex-row overflow-hidden w-full border-b border-gray-700">
+    <motion.section className="flex flex-col md:flex-row overflow-hidden w-full border-b border-gray-700" transition={{ delay: .5, type: 'spring', duration: 2,}} variants={animationVariant} animate={'animate'} initial={'init'}>
       <Image
         src={starGrey}
         alt="star"
@@ -29,7 +40,7 @@ const IntroMain = () => {
       />
       <IntroText />
       <IntroHero />
-    </section>
+    </motion.section>
   );
 };
 

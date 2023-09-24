@@ -1,10 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { idea, arrow, starViolet } from "@/exports/image";
 import Image from "next/image";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const IdeasImage = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.6,
+    triggerOnce: true,
+  });
+
+  const animation = useAnimation();
+  useEffect(() => {
+    if (inView) {
+      animation.start("animate");
+    } else {
+      animation.start("init");
+    }
+  });
+  const textVariant = {
+    init: {
+      x: 100,
+      opacity: 0,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+    },
+  };
   return (
-    <div className="w-full md:w-[50%] flex justify-center items-center h-[50%] md:h-full lg:py-10 py-5 px-5 relative">
+    <motion.div
+      className="w-full md:w-[50%] flex justify-center items-center h-[50%] md:h-full lg:py-10 py-5 px-5 relative"
+      variants={textVariant}
+      animate={animation}
+      initial={"init"}
+      transition={{ ease: "easeInOut", type: "spring", duration: 2 }}
+      ref={ref}
+    >
       <Image
         src={arrow}
         alt="arrow"
@@ -21,7 +53,7 @@ const IdeasImage = () => {
           The Big <br /> Idea!
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

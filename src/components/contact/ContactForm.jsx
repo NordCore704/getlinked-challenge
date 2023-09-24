@@ -11,7 +11,8 @@ import {
   starGrey,
 } from "@/exports/image";
 import { validateContactForm } from "@/utils/validateForm";
-import { RegisterSuccess, ContactSuccess }  from "@/exports";
+import { ContactSuccess }  from "@/exports";
+import { motion } from "framer-motion";
 
 const ContactForm = () => {
   const [postData, setPostData] = useState({
@@ -52,10 +53,23 @@ const ContactForm = () => {
     setShowPopUp(false)
   }
 
-  
+  const slideInVariant = {
+    animate: {
+      opacity: 1,
+      y: 0,
+    },
+    init: {
+      opacity: 0,
+      y: 100,
+    },
+  };
 
   return (
-    <div className="flex items-center justify-center flex-col gap-6 relative z-10">
+    <motion.div className="flex items-center justify-center flex-col gap-6 relative z-10"   variants={slideInVariant}
+    animate={"animate"}
+    initial={"init"}
+    transition={{ delay: .4, ease: "easeInOut", type: "spring", duration: 2 }}
+  >
       <div className="md:w-[90%] md:rounded-md md:bg-opacity-50 md:bg-gray-800 md:shadow-sm md:backdrop-blur-lg md:backdrop-filter p-3 sm:p-10 flex flex-col gap-4">
         <div className="">
           <h2 className="text-scheme-violet text-2xl sm:text-3xl font-bold clash">
@@ -161,7 +175,7 @@ const ContactForm = () => {
         className="absolute w-3 flex md:hidden top-0"
       />
       {showPopUp && <ContactSuccess onClose={closePopup}/>}
-    </div>
+    </motion.div>
   );
 };
 

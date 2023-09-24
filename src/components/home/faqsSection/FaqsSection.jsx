@@ -3,7 +3,7 @@ import { FaqsText, FaqsImage } from '@/exports'
 
 const FaqsSection = () => {
   return (
-    <section id='faqs' className='flex flex-col md:flex-row border-gray-700 border-b'>
+    <section id='faqs' className='flex flex-col md:flex-row border-gray-700 border-b overflow-hidden'>
         <FaqsText />
         <FaqsImage />
     </section>

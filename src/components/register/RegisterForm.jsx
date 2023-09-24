@@ -4,6 +4,7 @@ import { postRegistration } from "@/utils/post";
 import { star, starGrey } from "@/exports/image";
 import { validateForm } from "@/utils/validateForm";
 import { RegisterSuccess } from "@/exports";
+import { motion } from "framer-motion";
 
 const RegisterForm = () => {
   const [postData, setPostData] = useState({
@@ -16,7 +17,7 @@ const RegisterForm = () => {
     privacy_poclicy_accepted: true,
   });
   const [errors, setErrors] = useState({});
-  const [showPopUp, setShowPopUp] = useState(false)
+  const [showPopUp, setShowPopUp] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -28,34 +29,55 @@ const RegisterForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
- 
+
     const newErrors = validateForm(postData);
- 
 
     if (Object.keys(newErrors).length === 0) {
       const finalPostData = {
         ...postData,
         group_size: Number(postData.group_size),
-        category: Number(postData.group_size)
-      }
+        category: Number(postData.group_size),
+      };
       try {
         const data = await postRegistration(finalPostData);
         console.log("Post successful", data);
-        setShowPopUp(true)
+        setShowPopUp(true);
       } catch (error) {
         console.log(error);
       }
     }
-    setErrors(newErrors)
+    setErrors(newErrors);
   };
 
   const closePopup = () => {
-    setShowPopUp(false)
-  }
+    setShowPopUp(false);
+  };
+
+  const slideInVariant = {
+    animate: {
+      opacity: 1,
+      x: 0,
+    },
+    init: {
+      opacity: 0,
+      x: -100,
+    },
+  };
 
   return (
-    <div className="flex items-center justify-center flex-col gap-6 relative w-full h-[60%] md:w-1/2 md:h-full p-2 sm:p-5 lg:p-8 z-10">
-      {showPopUp && <RegisterSuccess onClose={closePopup}/>}
+    <motion.div
+      className="flex items-center justify-center flex-col gap-6 relative w-full h-[60%] md:w-1/2 md:h-full p-2 sm:p-5 lg:p-8 z-10"
+      variants={slideInVariant}
+      animate={"animate"}
+      initial={"init"}
+      transition={{
+        delay: 0.3,
+        ease: "easeInOut",
+        type: "spring",
+        duration: 2,
+      }}
+    >
+      {showPopUp && <RegisterSuccess onClose={closePopup} />}
       <div className="w-full md:rounded-md md:bg-opacity-50 md:bg-gray-800 md:shadow-sm md:backdrop-blur-lg md:backdrop-filter p-3 sm:p-10 flex flex-col gap-4">
         <div className="flex flex-col gap-16">
           <h2 className="text-scheme-violet text-2xl sm:text-3xl font-bold hidden md:flex">
@@ -90,7 +112,9 @@ const RegisterForm = () => {
                 name="team_name"
                 placeholder="Enter the name of your group"
               />
-              {errors.team_name && <p className="text-sm text-red-500">{errors.team_name}</p>}
+              {errors.team_name && (
+                <p className="text-sm text-red-500">{errors.team_name}</p>
+              )}
             </div>
             <div className="flex flex-col gap-2 md:w-1/2">
               <label htmlFor="phone_number" className="">
@@ -104,9 +128,10 @@ const RegisterForm = () => {
                 name="phone_number"
                 placeholder="Enter your phone number"
               />
-              {errors.phone_number && <p className="text-sm text-red-500">{errors.phone_number}</p>}
+              {errors.phone_number && (
+                <p className="text-sm text-red-500">{errors.phone_number}</p>
+              )}
             </div>
-            
           </div>
           <div className="flex flex-col md:flex-row gap-5 w-full">
             <div className="flex flex-col gap-2 md:w-1/2">
@@ -119,7 +144,9 @@ const RegisterForm = () => {
                 name="email"
                 placeholder="Enter your email address"
               />
-              {errors.email && <p className="text-sm text-red-500">{errors.email}</p>}
+              {errors.email && (
+                <p className="text-sm text-red-500">{errors.email}</p>
+              )}
             </div>
             <div className="flex flex-col gap-2 md:w-1/2">
               <label htmlFor="topic" className="">
@@ -133,7 +160,9 @@ const RegisterForm = () => {
                 name="project_topic"
                 placeholder="What is your group project topic"
               />
-              {errors.project_topic && <p className="text-sm text-red-500">{errors.project_topic}</p>}
+              {errors.project_topic && (
+                <p className="text-sm text-red-500">{errors.project_topic}</p>
+              )}
             </div>
           </div>
           <div className="flex gap-5 w-full">
@@ -191,7 +220,9 @@ const RegisterForm = () => {
                   4
                 </option>
               </select>
-              {errors.group_size && <p className="text-sm text-red-500">{errors.group_size}</p>}
+              {errors.group_size && (
+                <p className="text-sm text-red-500">{errors.group_size}</p>
+              )}
             </div>
           </div>
 
@@ -212,9 +243,12 @@ const RegisterForm = () => {
                 I agreed with the event's terms and conditions and privacy
                 policy
               </label>
-              
             </div>
-            {errors.privacy_poclicy_accepted && <p className="text-sm text-red-500">{errors.privacy_poclicy_accepted}</p>}
+            {errors.privacy_poclicy_accepted && (
+              <p className="text-sm text-red-500">
+                {errors.privacy_poclicy_accepted}
+              </p>
+            )}
           </div>
           <button
             type="submit"
@@ -230,8 +264,7 @@ const RegisterForm = () => {
         alt="star"
         className="absolute bottom-5 left-[70%] w-3"
       />
-      
-    </div>
+    </motion.div>
   );
 };
 
