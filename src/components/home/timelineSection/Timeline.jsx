@@ -24,7 +24,7 @@ const Timeline = () => {
       <div className="relative md:col-span-4 w-full h-full flex justify-center items-center flex-col gap-1">
         <div className="h-full w-0.5 ml-2.5 bg-scheme-violet md:self-start md:flex hidden"></div>
         <div className="flex gap-3 self-center md:self-start z-10">
-          <div className="mb-1 text-white text-center w-6 h-6 rounded-full bg-scheme-violet font-semibold">
+          <div className="mb-1 text-white text-center w-6 h-6 rounded-full bg-gradient-to-r from-scheme-violet to-scheme-purple font-semibold">
             1
           </div>
           <p className="text-scheme-violet font-semibold text-sm sm:text-base ">
@@ -49,7 +49,7 @@ const Timeline = () => {
       <div className="relative md:col-span-4 w-full h-full flex justify-center items-center flex-col gap-1">
         <div className="h-10 w-0.5 ml-2.5 bg-scheme-violet md:self-end hidden"></div>
         <div className="flex md:flex-row-reverse gap-3 self-center md:self-end z-10 md:relative md:-right-7">
-          <div className="mb-1 text-white text-center w-6 h-6 rounded-full bg-scheme-violet font-semibold">
+          <div className="mb-1 text-white text-center w-6 h-6 rounded-full bg-gradient-to-r from-scheme-violet to-scheme-purple font-semibold">
             2
           </div>
           <p className="text-scheme-violet font-semibold text-sm sm:text-base">
@@ -74,7 +74,7 @@ const Timeline = () => {
       <div className="relative md:col-span-4 w-full h-full flex justify-center items-center flex-col gap-1">
         <div className="h-full w-0.5 ml-2.5 bg-scheme-violet md:self-start md:flex hidden"></div>
         <div className="flex w-full gap-3 self-center md:self-start z-10">
-          <div className="mb-1 text-white text-center w-6 h-6  rounded-full bg-scheme-violet font-semibold">
+          <div className="mb-1 text-white text-center w-6 h-6 rounded-full bg-gradient-to-r from-scheme-violet to-scheme-purple font-semibold">
             3
           </div>
           <p className="text-scheme-violet text-sm sm:text-base font-semibold w-full">
@@ -99,7 +99,7 @@ const Timeline = () => {
       <div className="relative md:col-span-4 w-full h-full flex justify-center items-center flex-col gap-1">
         <div className="h-10 w-0.5 ml-2.5 bg-scheme-violet md:self-end hidden"></div>
         <div className="flex md:flex-row-reverse gap-3 self-center md:self-end z-10 md:relative md:-right-7">
-          <div className="mb-1 text-white text-center w-6 h-6 rounded-full bg-scheme-violet font-semibold">
+          <div className="mb-1 text-white text-center w-6 h-6 rounded-full bg-gradient-to-r from-scheme-violet to-scheme-purple font-semibold">
             4
           </div>
           <p className="text-scheme-violet font-semibold text-sm sm:text-base">
@@ -124,7 +124,7 @@ const Timeline = () => {
       <div className="relative md:col-span-4 w-full h-full flex justify-center items-center flex-col gap-1">
         <div className="h-full w-0.5 ml-2.5 bg-scheme-violet md:self-start md:flex hidden"></div>
         <div className="flex gap-3 self-center md:self-start z-10">
-          <div className="mb-1 text-white text-center w-6 h-6 rounded-full bg-scheme-violet font-semibold">
+          <div className="mb-1 text-white text-center w-6 h-6 rounded-full bg-gradient-to-r from-scheme-violet to-scheme-purple font-semibold">
             5
           </div>
           <p className="text-scheme-violet font-semibold text-sm sm:text-base">
@@ -149,7 +149,7 @@ const Timeline = () => {
       <div className="relative md:col-span-4 w-full h-full flex justify-center items-center flex-col gap-1">
         <div className="h-10 w-0.5 ml-2.5 bg-scheme-violet md:self-end hidden"></div>
         <div className="flex md:flex-row-reverse gap-3 self-center md:self-end z-10 md:relative md:-right-7">
-          <div className="mb-1 text-white text-center w-6 h-6 rounded-full bg-scheme-violet font-semibold">
+          <div className="mb-1 text-white text-center w-6 h-6 rounded-full bg-gradient-to-r from-scheme-violet to-scheme-purple font-semibold">
             6
           </div>
           <p className="text-scheme-violet font-semibold text-sm sm:text-base">
