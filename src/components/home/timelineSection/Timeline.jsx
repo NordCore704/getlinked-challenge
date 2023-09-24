@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { inView } from 'react-intersection-observer'
 import { starGrey, starPurple, star } from "@/exports/image";
 
 const Timeline = () => {

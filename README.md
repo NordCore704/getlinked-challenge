@@ -72,5 +72,3 @@ Special thanks to the GetLinked team for organizing this hackathon and providing
 Feel free to reach out if you have any questions or feedback!
 
 ---
-
-*Note: This README provides an overview of the project, but actual URLs, code snippets, and specific details may vary based on your project's structure and implementation.*
