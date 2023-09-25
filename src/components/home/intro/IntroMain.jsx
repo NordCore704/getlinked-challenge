@@ -23,7 +23,7 @@ const IntroMain = () => {
         className="absolute top-36 md:top-36 left-36"
       />
       <div className="absolute top-20 md:right-5 flex flex-col items-center justify-center self-center md:self-end mt-2">
-        <p className="font-semibold sm:text-2xl md:text-2xl lg:text-2xl text-xl italic">
+        <p className="font-semibold sm:text-2xl md:text-2xl lg:text-2xl text-lg italic">
           Igniting a Revolution in HR Innovation
         </p>
         <Image alt="pink-arc" src={pinkArc} className="self-end" />

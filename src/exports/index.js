@@ -41,6 +41,8 @@ import RegisterMain from "@/components/register/RegisterMain";
 import RegisterImage from "@/components/register/RegisterImage";
 import RegisterForm from "@/components/register/RegisterForm";
 import RegisterSuccess from "@/components/register/RegisterSuccess";
+import NavigateBack from "@/components/contact/ContactNavigateBack";
+import RegisterNavigateBack from "@/components/register/RegisterNavigateBack";
 
 
 export {
@@ -87,4 +89,6 @@ export {
   RegisterImage,
   RegisterForm,
   RegisterSuccess,
+  NavigateBack,
+  RegisterNavigateBack,
 };

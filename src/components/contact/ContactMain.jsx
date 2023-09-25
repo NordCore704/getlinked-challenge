@@ -1,5 +1,5 @@
 import React from "react";
-import { ContactForm, ContactText } from "@/exports";
+import { ContactForm, ContactText, NavigateBack } from "@/exports";
 import { flare } from "@/exports/image";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -15,12 +15,13 @@ const ContactMain = () => {
   };
   return (
     <motion.section
-      className="p-8 flex relative overflow-hidden gap-10 items-center justify-center"
+      className="p-8 flex flex-col md:flex-row relative overflow-hidden gap-10 items-center justify-center"
       variants={opacityVariant}
       animate={"animate"}
       initial={"init"}
       transition={{ ease: "easeInOut", type: "spring", duration: 2 }}
     >
+      <NavigateBack />
       <ContactText />
       <ContactForm />
       <Image

@@ -1,5 +1,5 @@
 import React from "react";
-import { RegisterForm, RegisterImage } from "@/exports";
+import { RegisterForm, RegisterImage, RegisterNavigateBack } from "@/exports";
 import Image from "next/image";
 import { flare } from "@/exports/image";
 import { motion } from "framer-motion";
@@ -21,6 +21,7 @@ const RegisterMain = () => {
       initial={"init"}
       transition={{ ease: "easeInOut", type: "spring", duration: 2 }}
     >
+      <RegisterNavigateBack />
       <RegisterImage />
       <RegisterForm />
       <Image
