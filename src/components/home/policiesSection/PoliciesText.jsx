@@ -65,7 +65,7 @@ const PoliciesText = () => {
 
           <ul className="flex flex-col gap-4 ">
             <li className="flex justify-center items-center">
-              <Image src={greenCheck} className="self-center w-5" alt="green-check" />
+              <Image src={greenCheck} className="self-center w-8" alt="green-check" />
               <p className="pl-4">
               The Standard License grants you a non-exclusive right to navigate
               and register for our event
@@ -73,7 +73,7 @@ const PoliciesText = () => {
               
             </li>
             <li className="flex items-center justify-center">
-              <Image src={greenCheck} className="self-center w-5" alt="green-check" />
+              <Image src={greenCheck} className="self-center w-8" alt="green-check" />
               <p className="pl-4">
               You are licensed to use the item available at any free source
               sites for your project development
