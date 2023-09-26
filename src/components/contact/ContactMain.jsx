@@ -19,7 +19,12 @@ const ContactMain = () => {
       variants={opacityVariant}
       animate={"animate"}
       initial={"init"}
-      transition={{ ease: "easeInOut", type: "spring", duration: 2 }}
+      transition={{
+        delay: 1.7,
+        ease: "easeInOut",
+        type: "spring",
+        duration: 2,
+      }}
     >
       <NavigateBack />
       <ContactText />

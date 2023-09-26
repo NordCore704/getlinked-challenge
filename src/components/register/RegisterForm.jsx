@@ -71,7 +71,7 @@ const RegisterForm = () => {
       animate={"animate"}
       initial={"init"}
       transition={{
-        delay: 0.3,
+        delay: 1.9,
         ease: "easeInOut",
         type: "spring",
         duration: 2,

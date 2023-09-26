@@ -1,22 +1,22 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Footer, Navbar } from "@/exports";
 import { useRouter } from "next/router";
 
 const SharedLayout = ({ children }) => {
   const router = useRouter();
-  const [isMobileView, setIsMobileView] = useState(false)
+  const [isMobileView, setIsMobileView] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobileView(window.innerWidth < 768)
-    }
+      setIsMobileView(window.innerWidth < 768);
+    };
 
-    handleResize()
+    handleResize();
 
-    window.addEventListener('resize', handleResize)
+    window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const excludeContactRoute = router.pathname === "/contact";
   const excludeRegisterRoute = router.pathname === "/register";

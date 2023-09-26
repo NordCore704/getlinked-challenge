@@ -11,7 +11,7 @@ import {
   starGrey,
 } from "@/exports/image";
 import { validateContactForm } from "@/utils/validateForm";
-import { ContactSuccess }  from "@/exports";
+import { ContactSuccess } from "@/exports";
 import { motion } from "framer-motion";
 
 const ContactForm = () => {
@@ -21,8 +21,8 @@ const ContactForm = () => {
     first_name: "",
     message: "",
   });
-  const [errors, setErrors] = useState({})
-  const [showPopUp, setShowPopUp] = useState(false)
+  const [errors, setErrors] = useState({});
+  const [showPopUp, setShowPopUp] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -40,18 +40,17 @@ const ContactForm = () => {
       try {
         const data = await postForm(postData);
         console.log("Post successful", data);
-        setShowPopUp(true)
-  
+        setShowPopUp(true);
       } catch (error) {
         console.log(error);
       }
     }
-    setErrors(newErrors)
+    setErrors(newErrors);
   };
 
   const closePopup = () => {
-    setShowPopUp(false)
-  }
+    setShowPopUp(false);
+  };
 
   const slideInVariant = {
     animate: {
@@ -65,11 +64,18 @@ const ContactForm = () => {
   };
 
   return (
-    <motion.div className="flex items-center justify-center flex-col gap-6 relative z-10"   variants={slideInVariant}
-    animate={"animate"}
-    initial={"init"}
-    transition={{ delay: .4, ease: "easeInOut", type: "spring", duration: 2 }}
-  >
+    <motion.div
+      className="flex items-center justify-center flex-col gap-6 relative z-10"
+      variants={slideInVariant}
+      animate={"animate"}
+      initial={"init"}
+      transition={{
+        delay: 1.9,
+        ease: "easeInOut",
+        type: "spring",
+        duration: 2,
+      }}
+    >
       <div className="md:w-[90%] md:rounded-md md:bg-opacity-50 md:bg-gray-800 md:shadow-sm md:backdrop-blur-lg md:backdrop-filter p-3 sm:p-10 flex flex-col gap-4">
         <div className="">
           <h2 className="text-scheme-violet text-2xl sm:text-3xl font-bold clash">
@@ -90,7 +96,9 @@ const ContactForm = () => {
               name="first_name"
               placeholder="First Name"
             />
-            {errors.first_name && <p className="text-sm text-red-500 mt-3">{errors.first_name}</p>}
+            {errors.first_name && (
+              <p className="text-sm text-red-500 mt-3">{errors.first_name}</p>
+            )}
           </div>
           <div className="">
             <input
@@ -101,7 +109,9 @@ const ContactForm = () => {
               name="phone_number"
               placeholder="Phone"
             />
-             {errors.phone_number && <p className="text-sm text-red-500 mt-3">{errors.phone_number}</p>}
+            {errors.phone_number && (
+              <p className="text-sm text-red-500 mt-3">{errors.phone_number}</p>
+            )}
           </div>
           <div className="">
             <input
@@ -112,7 +122,9 @@ const ContactForm = () => {
               onChange={handleInputChange}
               value={postData.email}
             />
-             {errors.email && <p className="text-sm text-red-500 mt-3">{errors.email}</p>}
+            {errors.email && (
+              <p className="text-sm text-red-500 mt-3">{errors.email}</p>
+            )}
           </div>
 
           <div className="w-full">
@@ -126,7 +138,9 @@ const ContactForm = () => {
               onChange={handleInputChange}
               value={postData.message}
             ></textarea>
-             {errors.message && <p className="text-sm text-red-500 mt-3">{errors.message}</p>}
+            {errors.message && (
+              <p className="text-sm text-red-500 mt-3">{errors.message}</p>
+            )}
           </div>
 
           <button
@@ -174,7 +188,7 @@ const ContactForm = () => {
         alt="star"
         className="absolute w-3 flex md:hidden top-0"
       />
-      {showPopUp && <ContactSuccess onClose={closePopup}/>}
+      {showPopUp && <ContactSuccess onClose={closePopup} />}
     </motion.div>
   );
 };

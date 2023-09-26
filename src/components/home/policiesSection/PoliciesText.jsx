@@ -4,7 +4,6 @@ import { greenCheck, starPurple, star } from "@/exports/image";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-
 const PoliciesText = () => {
   const [ref, inView] = useInView({
     threshold: 0.6,
@@ -30,7 +29,14 @@ const PoliciesText = () => {
     },
   };
   return (
-    <motion.div className="w-full h-1/2 md:w-1/2 md:h-full flex justify-center items-center p-5 lg:p-10 flex-col gap-10 relative"  variants={textVariant} animate={animation} initial={'init'} transition={{ ease: 'easeInOut', type: 'spring', duration: 2 }} ref={ref}>
+    <motion.div
+      className="w-full h-1/2 md:w-1/2 md:h-full flex justify-center items-center p-5 lg:p-10 flex-col gap-10 relative"
+      variants={textVariant}
+      animate={animation}
+      initial={"init"}
+      transition={{ ease: "easeInOut", type: "spring", duration: 2 }}
+      ref={ref}
+    >
       <div className="flex flex-col gap-5 self-center md:self-start">
         <h2 className="font-bold text-2xl sm:text-3xl text-center md:text-left">
           Privacy and Policy <br />{" "}
@@ -65,18 +71,25 @@ const PoliciesText = () => {
 
           <ul className="flex flex-col gap-4 ">
             <li className="flex justify-center items-center">
-              <Image src={greenCheck} className="self-center w-8" alt="green-check" />
+              <Image
+                src={greenCheck}
+                className="self-center w-8"
+                alt="green-check"
+              />
               <p className="pl-4">
-              The Standard License grants you a non-exclusive right to navigate
-              and register for our event
+                The Standard License grants you a non-exclusive right to
+                navigate and register for our event
               </p>
-              
             </li>
             <li className="flex items-center justify-center">
-              <Image src={greenCheck} className="self-center w-8" alt="green-check" />
+              <Image
+                src={greenCheck}
+                className="self-center w-8"
+                alt="green-check"
+              />
               <p className="pl-4">
-              You are licensed to use the item available at any free source
-              sites for your project development
+                You are licensed to use the item available at any free source
+                sites for your project development
               </p>
             </li>
           </ul>
@@ -86,8 +99,16 @@ const PoliciesText = () => {
           </button>
         </div>
       </div>
-      <Image src={star} alt="star" className="absolute top-20 sm:top-10 w-3 sm:w-5 left-[70%] lg:left-[60%]"/>
-      <Image src={starPurple} alt="star" className="absolute bottom-10 left-5 z-10"/>
+      <Image
+        src={star}
+        alt="star"
+        className="absolute top-20 sm:top-10 w-3 sm:w-5 left-[70%] lg:left-[60%]"
+      />
+      <Image
+        src={starPurple}
+        alt="star"
+        className="absolute bottom-10 left-5 z-10"
+      />
     </motion.div>
   );
 };
